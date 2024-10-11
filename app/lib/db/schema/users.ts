@@ -15,3 +15,5 @@ export const users = sqliteTable(
 );
 
 export const usersRelations = relations(users, () => ({}));
+
+export type UserInsert = typeof users.$inferInsert;

@@ -7,6 +7,8 @@ import * as build from "../build/server";
 import { getLoadContext } from "../load-context";
 
 export const onRequest = createPagesFunctionHandler({
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   build,
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
