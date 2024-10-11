@@ -1,10 +1,23 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import {
+  json,
+  type LoaderFunctionArgs,
+  type MetaFunction,
+} from "@remix-run/cloudflare";
+import { getUsers } from "~/features/users/services/get-users";
 
 export const meta: MetaFunction = () => {
   return [
     { title: "New Remix App" },
     { name: "description", content: "Welcome to Remix!" },
   ];
+};
+
+export const loader = async ({ context }: LoaderFunctionArgs) => {
+  const users = await getUsers(context);
+
+  console.log(users);
+
+  return json({});
 };
 
 export default function Index() {
